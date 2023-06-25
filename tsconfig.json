@@ -1,6 +1,6 @@
 {
   "exclude": ["./cypress", "./cypress.config.ts"],
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "app/models/transactions"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
     "types": ["vitest/globals"],
@@ -16,7 +16,10 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "@Financely/UI/*": ["./app/components/*"],
+      "@Financely/Module/*": ["./app/modules/*"],
+      "@Financely/Data/*": ["./app/models/*"],
+      "~/*": ["./app/*"],
     },
     "skipLibCheck": true,
 
