@@ -1,4 +1,4 @@
-import { createExpense } from "@Financely/Data/transactions";
+import { createExpense } from "@Financely/Data/transaction";
 import type { ActionArgs, LoaderArgs, V2_MetaFunction } from "@remix-run/node";
 import { Outlet } from "@remix-run/react";
 import { Sidenav } from "~/components/nav";

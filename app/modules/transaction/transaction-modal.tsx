@@ -1,4 +1,4 @@
-import { createExpense } from "@Financely/Data/transactions";
+import { createExpense } from "@Financely/Data/transaction";
 import { DateInput, NumberInput, TextInput } from "@Financely/UI/forms";
 import { Modal } from "@Financely/UI/modal";
 import type { LoaderArgs } from "@remix-run/node";
