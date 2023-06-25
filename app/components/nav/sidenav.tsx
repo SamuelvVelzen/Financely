@@ -3,7 +3,7 @@ import {
   CameraIcon,
   TagIcon,
 } from "@heroicons/react/24/outline";
-import { Form, useSubmit } from "@remix-run/react";
+import { Form } from "@remix-run/react";
 import { useState } from "react";
 import { routes } from "~/config/routes";
 import { useUser } from "~/utils";
@@ -18,12 +18,6 @@ export function Sidenav({ className = "" }: SidenavProps) {
   const [openModal, setOpenModal] = useState(false);
 
   const user = useUser();
-  const submit = useSubmit();
-
-  function handleLogOut() {
-    console.log("click");
-    submit(null, { method: "post", action: "/logout" });
-  }
 
   return (
     <aside className={`${className} w-1/2 min-w-fit sm:w-1/3 md:w-1/4`}>
