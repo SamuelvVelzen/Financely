@@ -8,14 +8,19 @@ generator client {
 }
 
 model User {
-  id    String @id @default(cuid())
-  email String @unique
+  id String @id @default(cuid())
+
+  firstName String
+  suffix    String?
+  lastName  String
+  email     String  @unique
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   password Password?
   notes    Note[]
+  Expense  Expense[]
 }
 
 model Password {
@@ -29,6 +34,21 @@ model Note {
   id    String @id @default(cuid())
   title String
   body  String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String
+}
+
+model Expense {
+  id String @id @default(cuid())
+
+  amount      Decimal
+  name        String
+  description String?
+  payDate     DateTime
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
