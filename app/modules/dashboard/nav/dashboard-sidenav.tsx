@@ -40,7 +40,7 @@ export function DashboardSidenav({ className = "" }: DashboardSidenavProps) {
       />
 
       <SidenavNavItem
-        path={routes.dashboard.expense}
+        path={routes.dashboard.expenses}
         icon={<CameraIcon className="h-5 w-5" />}
         label="Expense"
       />
