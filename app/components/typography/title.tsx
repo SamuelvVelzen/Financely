@@ -1,5 +1,5 @@
 type TitleProps = { className?: string; text: string };
 
 export default function Title({ className = "", text }: TitleProps) {
-  return <span className={`${className} text-xl font-bold`}>{text}</span>;
+  return <h1 className={`${className} text-2xl font-bold`}>{text}</h1>;
 }
