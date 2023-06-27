@@ -9,7 +9,7 @@ export function Container({
   return (
     <div
       className={`${className} transform-gpu 
-  rounded-3xl bg-white drop-shadow-2xl filter`}
+  rounded-3xl bg-white p-4 drop-shadow-2xl filter`}
     >
       {children}
     </div>
