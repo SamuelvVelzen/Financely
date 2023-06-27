@@ -1,16 +1,19 @@
-import { redirect, V2_MetaFunction } from "@remix-run/node";
+import { LoaderArgs, redirect, V2_MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
+import { requireUserId } from "~/session.server";
 
 import { useOptionalUser } from "~/utils";
 
 export const meta: V2_MetaFunction = () => [{ title: "Remix Notes" }];
 
-export const loader = () => {
-  const user = useOptionalUser();
+export const loader = async ({ request }: LoaderArgs) => {
+  const userId = await requireUserId(request);
 
-  if (user) {
-    redirect("/dashboard");
+  if (userId) {
+    return redirect("/dashboard");
   }
+
+  return null;
 };
 
 export default function Index() {
