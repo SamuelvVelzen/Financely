@@ -33,10 +33,10 @@ export function SidenavNavItem({
       onClick={onClick}
       end
     >
-      {({ isActive, isPending }) => (
+      {({ isActive }) => (
         <>
           {modify(icon, isActive)}
-          <span>{label}</span>
+          <span className="ml-2">{label}</span>
         </>
       )}
     </NavLink>

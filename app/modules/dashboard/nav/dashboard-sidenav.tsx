@@ -1,3 +1,4 @@
+import { Avatar, IAvatarSize } from "@Financely/UI/avatar";
 import { Logo } from "@Financely/UI/logo";
 import { Sidenav, SidenavNavItem } from "@Financely/UI/nav";
 import { SubText, SubTitle } from "@Financely/UI/typography";
@@ -28,31 +29,31 @@ export function DashboardSidenav({ className = "" }: DashboardSidenavProps) {
 
       <SidenavNavItem
         path="/dashboard"
-        icon={<CameraIcon className="mr-2 h-5 w-5" />}
+        icon={<CameraIcon className="h-5 w-5" />}
         label="Dashboard"
       />
 
       <SidenavNavItem
         path=""
-        icon={<CameraIcon className="mr-2 h-5 w-5" />}
+        icon={<CameraIcon className="h-5 w-5" />}
         label="Income"
       />
 
       <SidenavNavItem
         path={routes.dashboard.expense}
-        icon={<CameraIcon className="mr-2 h-5 w-5" />}
+        icon={<CameraIcon className="h-5 w-5" />}
         label="Expense"
       />
 
       <SidenavNavItem
         path=""
-        icon={<TagIcon className="mr-2 h-5 w-5" />}
+        icon={<TagIcon className="h-5 w-5" />}
         label="Labels"
       />
 
       <SidenavNavItem
         path=""
-        icon={<CameraIcon className="mr-2 h-5 w-5" />}
+        icon={<CameraIcon className="h-5 w-5" />}
         label="Add in-expense"
         onClick={() => {}}
       />
@@ -60,14 +61,14 @@ export function DashboardSidenav({ className = "" }: DashboardSidenavProps) {
       <SidenavNavItem
         path=""
         className="mt-auto"
-        icon={<CameraIcon className="mr-2 h-5 w-5" />}
+        icon={<Avatar user={user} size={IAvatarSize.sm} />}
         label="Account"
       />
 
       <Form action="/logout" method="post">
         <button
           type="submit"
-          className="flex items-center rounded-3xl px-5 py-3 text-danger hover:underline"
+          className="flex w-full items-center rounded-3xl px-5 py-3 text-danger hover:underline"
         >
           <ArrowRightOnRectangleIcon className="mr-2 h-5 w-5 " />
           <span>Logout</span>
