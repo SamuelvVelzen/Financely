@@ -1,7 +1,7 @@
 import { createExpense } from "@Financely/Data/transaction";
+import { DashboardSidenav } from "@Financely/Module/dashboard";
 import type { ActionArgs, LoaderArgs, V2_MetaFunction } from "@remix-run/node";
 import { Outlet } from "@remix-run/react";
-import { Sidenav } from "~/components/nav";
 import { requireUserId } from "~/session.server";
 import { validateUserSession } from "~/util/auth";
 
@@ -35,7 +35,7 @@ export const action = async ({ request }: ActionArgs) => {
 export default function DashboardPage() {
   return (
     <div className="flex h-full min-h-screen bg-lightgrey">
-      <Sidenav />
+      <DashboardSidenav />
 
       <main className="m-4 flex w-full flex-col">
         <Outlet />
