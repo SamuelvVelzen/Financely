@@ -1,10 +1,17 @@
 import { createExpense } from "@Financely/Data/transaction";
-import { DateInput, NumberInput, TextInput } from "@Financely/UI/forms";
+import {
+  DateInput,
+  NumberInput,
+  TextareaInput,
+  TextInput,
+} from "@Financely/UI/forms";
 import { Modal } from "@Financely/UI/modal";
 import type { LoaderArgs } from "@remix-run/node";
 import { requireUserId } from "~/session.server";
 
-type ExpenseIncomeModalProps = {};
+type ExpenseIncomeModalProps = {
+  openState: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+};
 
 export const loader = async ({ request }: LoaderArgs) => {
   const userId = await requireUserId(request);
@@ -18,7 +25,7 @@ export const loader = async ({ request }: LoaderArgs) => {
   });
 };
 
-export function TransactionModal({}: ExpenseIncomeModalProps) {
+export function TransactionModal({ openState }: ExpenseIncomeModalProps) {
   const headerTextOptions = {
     title: "Create Income or Expense ",
   };
@@ -28,12 +35,18 @@ export function TransactionModal({}: ExpenseIncomeModalProps) {
   };
 
   return (
-    <Modal header={headerTextOptions} footer={footerTextOptions}>
+    <Modal
+      header={headerTextOptions}
+      footer={footerTextOptions}
+      action={{ open: openState[0], setOpen: openState[1] }}
+    >
       <div className="flex">
         <NumberInput labelText={"Amount"} step={0.01} min={0} />
         <TextInput labelText={"Name"} />
         <DateInput labelText={"Date"} />
       </div>
+
+      <TextareaInput labelText={"Description"} />
     </Modal>
   );
 }

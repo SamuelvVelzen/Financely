@@ -1,6 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Form } from "@remix-run/react";
-import { Fragment, PropsWithChildren, useRef, useState } from "react";
+import { Fragment, PropsWithChildren, useRef } from "react";
 import { ModalFooter } from "./modal-footer";
 import { ModalHeader } from "./modal-header";
 
@@ -14,14 +14,19 @@ type ModalProps = {
     primaryAction?: () => Promise<void>;
     secondaryTextBtn?: string;
   };
+  action: {
+    open: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  };
 };
 
 export function Modal({
   header,
   footer,
+  action,
   children,
 }: PropsWithChildren<ModalProps>) {
-  const [open, setOpen] = useState(true);
+  const { open, setOpen } = action;
 
   const cancelButtonRef = useRef(null);
 
