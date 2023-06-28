@@ -1,5 +1,5 @@
 type SubTitleProps = { className?: string; text: string };
 
 export function SubTitle({ className = "", text }: SubTitleProps) {
-  return <span className={`${className} text-lg font-bold`}>{text}</span>;
+  return <p className={`${className} mb-0 text-lg font-bold`}>{text}</p>;
 }
