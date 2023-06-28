@@ -4,7 +4,7 @@ import type { V2_MetaFunction } from "@remix-run/node";
 import { routes } from "~/config/routes";
 import { createRoute } from "~/util/nav";
 
-export const meta: V2_MetaFunction = () => [{ title: "Dashboard" }];
+export const meta: V2_MetaFunction = () => [{ title: "Expenses | Financely" }];
 
 export default function ExpensePage() {
   const breadCrumbs = [
