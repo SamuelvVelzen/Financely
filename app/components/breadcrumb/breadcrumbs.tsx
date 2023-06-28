@@ -14,12 +14,12 @@ export function BreadCrumbs({
   return (
     <div>
       {breadCrumbs.map((breadCrumb, index) => (
-        <>
-          <BreadCrumb key={index} breadCrumbConfig={breadCrumb} />
+        <span key={index}>
+          <BreadCrumb breadCrumbConfig={breadCrumb} />
           {index + 1 < breadCrumbs.length && (
             <span className="text-darkgrey"> {divider} </span>
           )}
-        </>
+        </span>
       ))}
     </div>
   );
