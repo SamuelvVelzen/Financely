@@ -13,7 +13,6 @@ export default {
         "darkgrey": "#738290", 
         "lightgrey": "#F7F6F9", 
         "light": "#FFFFFF",
-
         "danger": "#FF0000",
       },
       fontFamily: {
