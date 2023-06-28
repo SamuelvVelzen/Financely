@@ -34,15 +34,15 @@ export function DashboardSidenav({ className = "" }: DashboardSidenavProps) {
       />
 
       <SidenavNavItem
-        path=""
+        path={routes.dashboard.incomes}
         icon={<CameraIcon className="h-5 w-5" />}
-        label="Income"
+        label="Incomes"
       />
 
       <SidenavNavItem
         path={routes.dashboard.expenses}
         icon={<CameraIcon className="h-5 w-5" />}
-        label="Expense"
+        label="Expenses"
       />
 
       <SidenavNavItem
