@@ -5,7 +5,7 @@ import {
   TextareaInput,
   TextInput,
 } from "@Financely/UI/forms";
-import { Modal } from "@Financely/UI/modal";
+import { IModalSizeEnum, Modal } from "@Financely/UI/modal";
 import type { LoaderArgs } from "@remix-run/node";
 import { requireUserId } from "~/session.server";
 
@@ -39,6 +39,7 @@ export function TransactionModal({ openState }: ExpenseIncomeModalProps) {
       header={headerTextOptions}
       footer={footerTextOptions}
       action={{ open: openState[0], setOpen: openState[1] }}
+      size={IModalSizeEnum.lg}
     >
       <div className="flex">
         <NumberInput labelText={"Amount"} step={0.01} min={0} />

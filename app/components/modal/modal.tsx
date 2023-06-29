@@ -4,6 +4,20 @@ import { Fragment, PropsWithChildren, useRef } from "react";
 import { ModalFooter } from "./modal-footer";
 import { ModalHeader } from "./modal-header";
 
+export enum IModalSizeEnum {
+  sm = "sm",
+  md = "md",
+  lg = "lg",
+}
+
+const ModalSizeOptions: {
+  [key in IModalSizeEnum]: { class: string };
+} = {
+  [IModalSizeEnum.sm]: { class: "max-w-md" },
+  [IModalSizeEnum.md]: { class: "max-w-lg" },
+  [IModalSizeEnum.lg]: { class: "max-w-5xl" },
+};
+
 type ModalProps = {
   header: {
     title: string;
@@ -14,6 +28,7 @@ type ModalProps = {
     primaryAction?: () => Promise<void>;
     secondaryTextBtn?: string;
   };
+  size?: IModalSizeEnum;
   action: {
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,6 +38,7 @@ type ModalProps = {
 export function Modal({
   header,
   footer,
+  size = IModalSizeEnum.md,
   action,
   children,
 }: PropsWithChildren<ModalProps>) {
@@ -61,7 +77,9 @@ export function Modal({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+              <Dialog.Panel
+                className={`relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full ${ModalSizeOptions[size].class}`}
+              >
                 <Form method="post">
                   <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                     <div className="sm:flex sm:items-start">
