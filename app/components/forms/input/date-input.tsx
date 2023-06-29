@@ -9,7 +9,7 @@ export function DateInput({ labelText }: DateInputProps) {
     <Input
       labelText={labelText}
       type={"date"}
-      className={"pb-1 pt-[0.825rem]"}
+      className={"!pb-1 !pt-[0.825rem]"}
     />
   );
 }
