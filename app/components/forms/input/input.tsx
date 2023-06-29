@@ -1,17 +1,32 @@
 type InputProps = {
   labelText: string;
   type: "date" | "number" | "text";
-  className?: string;
+  bodyClass?: string;
+  inputClassName?: string;
+  step?: number;
+  min?: number;
+  max?: number;
 };
 
-export function Input({ labelText, type, className }: InputProps) {
+export function Input({
+  labelText,
+  type,
+  bodyClass,
+  inputClassName,
+  step,
+  min,
+  max,
+}: InputProps) {
   return (
-    <div className="relative">
+    <div className={`${bodyClass} relative`}>
       <input
         type={type}
         id="floating_outlined"
-        className={`${className} peer block w-full appearance-none rounded-3xl border border-darkgrey bg-transparent px-4 pb-2.5 pt-4 text-sm text-dark focus:text-dark focus:outline-none focus:ring-0`}
+        className={`${inputClassName} peer block w-full appearance-none rounded-3xl border border-darkgrey bg-transparent px-4 pb-2.5 pt-4 text-sm text-dark focus:text-dark focus:outline-none focus:ring-0`}
         placeholder=" "
+        min={min}
+        max={max}
+        step={step}
       />
       <label
         htmlFor="floating_outlined"
