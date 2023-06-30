@@ -1,6 +1,7 @@
 import { Input } from "./input";
 
 type NumberInputProps = {
+  name: string;
   labelText: string;
   step?: number;
   min?: number;
@@ -9,6 +10,7 @@ type NumberInputProps = {
 };
 
 export function NumberInput({
+  name,
   labelText,
   step,
   min,
@@ -17,6 +19,7 @@ export function NumberInput({
 }: NumberInputProps) {
   return (
     <Input
+      name={name}
       labelText={labelText}
       type={"number"}
       step={step}
