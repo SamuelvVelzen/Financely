@@ -1,3 +1,4 @@
+import { propsWithOnClick } from "@Financely/Util/type";
 import { PropsWithChildren } from "react";
 import { ThemeColorEnum } from "./enums/ThemeColor.enum";
 
@@ -7,9 +8,11 @@ export function Button({
   theme,
   className,
   children,
-}: PropsWithChildren<ButtonProps>) {
+  onClick,
+}: propsWithOnClick<PropsWithChildren<ButtonProps>>) {
   return (
     <button
+      onClick={onClick}
       className={`rounded-3xl px-4 py-2 ${ButtonThemeOptions[theme].class} ${className}`}
     >
       {children}
