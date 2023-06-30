@@ -52,8 +52,10 @@ export function SelectInput({
       </div>
       <label
         htmlFor={name}
-        className={`absolute left-[1.2rem] top-[0.3rem] z-10 origin-[0] -translate-y-4 scale-75 transform rounded-3xl bg-light px-1 text-sm text-darkgrey duration-300 ${
-          !selectedOption && "top-1/2 -translate-y-1/2 scale-100 "
+        className={`absolute left-[1.2rem] z-10 origin-[0] transform rounded-3xl bg-light px-1 text-sm text-darkgrey duration-300 ${
+          selectedOption
+            ? "top-[0.3rem] -translate-y-4 scale-75"
+            : "top-1/2 -translate-y-1/2 scale-100 "
         }`}
       >
         {labelText}
