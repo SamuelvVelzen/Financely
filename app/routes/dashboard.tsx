@@ -3,7 +3,7 @@ import { DashboardSidenav } from "@Financely/Module/dashboard";
 import type { ActionArgs, LoaderArgs, V2_MetaFunction } from "@remix-run/node";
 import { Outlet } from "@remix-run/react";
 import { requireUserId } from "~/session.server";
-import { validateUserSession } from "~/util/auth";
+import { validateUserSession } from "../util";
 
 export const meta: V2_MetaFunction = () => [{ title: "Dashboard" }];
 
@@ -21,7 +21,7 @@ export const action = async ({ request }: ActionArgs) => {
   const description = formData.get("description");
   const payDate = formData.get("payDate");
 
-  await createExpense({
+  const x = await createExpense({
     amount: 2342.51,
     name: "Test 1",
     description: "Test 3 beschrijving",
@@ -29,7 +29,7 @@ export const action = async ({ request }: ActionArgs) => {
     userId,
   });
 
-  return null;
+  return x;
 };
 
 export default function DashboardPage() {

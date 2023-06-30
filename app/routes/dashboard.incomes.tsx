@@ -4,10 +4,10 @@ import { Container } from "@Financely/UI/container";
 import { TextInput } from "@Financely/UI/forms";
 import { List, ListItem } from "@Financely/UI/list";
 import { SubText, SubTitle } from "@Financely/UI/typography";
+import { createRoute } from "@Financely/Util/nav";
 import type { V2_MetaFunction } from "@remix-run/node";
 import { useState } from "react";
 import { routes } from "~/config/routes";
-import { createRoute } from "~/util/nav";
 
 export const meta: V2_MetaFunction = () => [{ title: "Incomes | Financely" }];
 
