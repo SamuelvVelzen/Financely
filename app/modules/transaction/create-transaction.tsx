@@ -34,9 +34,13 @@ export function CreateTransaction({
     { value: TransactionTypeEnum.expense, label: "Expense" },
   ];
 
-  if (!isEditMode) {
-    return (
-      <div className="group flex items-center justify-between p-4">
+  return (
+    <div>
+      <div
+        className={`group flex items-center justify-between p-4 ${
+          isEditMode ? "hidden" : "block"
+        }`}
+      >
         <p>{data.name}</p>
 
         <div className="flex ">
@@ -49,55 +53,53 @@ export function CreateTransaction({
           <DeleteButton className="invisible ml-2 group-hover:visible" />
         </div>
       </div>
-    );
-  }
 
-  return (
-    <div className="p-4">
-      <div className="mb-2 flex gap-4">
-        <SelectInput
-          name="type"
-          labelText={"Type"}
-          className="w-1/6"
-          options={options}
-        />
+      <div className={`p-4  ${isEditMode ? "block" : "hidden"}`}>
+        <div className="mb-2 flex gap-4">
+          <SelectInput
+            name="type"
+            labelText={"Type"}
+            className="w-1/6"
+            options={options}
+          />
 
-        <NumberInput
-          name="amount"
-          labelText={"Amount"}
-          step={0.01}
-          min={0}
-          className="w-1/6"
-        />
-        <TextInput name="name" labelText={"Name"} className="w-3/6" />
-        <DateInput name="date" labelText={"Date"} className="w-1/6" />
-      </div>
-
-      <p
-        onClick={() => setShowDetails(!showDetails)}
-        className="mb-2 text-sm text-darkgrey underline"
-      >
-        {showDetails ? "Show" : "Hide"} advanced data
-      </p>
-
-      {showDetails && (
-        <div>
-          <TextareaInput name="description" labelText={"Description"} />
+          <NumberInput
+            name="amount"
+            labelText={"Amount"}
+            step={0.01}
+            min={0}
+            className="w-1/6"
+          />
+          <TextInput name="name" labelText={"Name"} className="w-3/6" />
+          <DateInput name="date" labelText={"Date"} className="w-1/6" />
         </div>
-      )}
 
-      <div className="flex justify-end">
-        <OutlineButton
-          theme={ThemeColorEnum.primary}
-          onClick={() => {
-            setIsEditMode(false);
-          }}
+        <p
+          onClick={() => setShowDetails(!showDetails)}
+          className="mb-2 text-sm text-darkgrey underline"
         >
-          Cancel
-        </OutlineButton>
-        <Button theme={ThemeColorEnum.primary} className="ml-2">
-          Opslaan
-        </Button>
+          {showDetails ? "Show" : "Hide"} advanced data
+        </p>
+
+        {showDetails && (
+          <div>
+            <TextareaInput name="description" labelText={"Description"} />
+          </div>
+        )}
+
+        <div className="flex justify-end">
+          <OutlineButton
+            theme={ThemeColorEnum.primary}
+            onClick={() => {
+              setIsEditMode(false);
+            }}
+          >
+            Cancel
+          </OutlineButton>
+          <Button theme={ThemeColorEnum.primary} className="ml-2">
+            Opslaan
+          </Button>
+        </div>
       </div>
     </div>
   );
