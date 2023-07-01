@@ -40,8 +40,6 @@ export const action = async ({ request }: ActionArgs) => {
   const dates = formData.getAll("date");
   const descriptions = formData.getAll("description");
 
-  console.log(descriptions);
-
   const transactions = [];
 
   for (let i = 0; i < types.length; i++) {
@@ -64,9 +62,7 @@ export const action = async ({ request }: ActionArgs) => {
     transactions.push(transaction);
   }
 
-  await createTransactions(transactions, userId);
-
-  return null;
+  return await createTransactions(transactions, userId);
 };
 
 export default function App() {
