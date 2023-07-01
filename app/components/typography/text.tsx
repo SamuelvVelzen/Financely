@@ -15,11 +15,13 @@ export function Text({
 }: TextProps) {
   const [isTruncated, setIsTruncated] = useState(true);
   const [truncatedText, setTruncatedText] = useState(
-    shouldTruncate ? text.substring(0, maxSize) : text
+    shouldTruncate && shouldTruncate ? text.substring(0, maxSize) : text
   );
 
   useEffect(() => {
-    const truncatedText = isTruncated ? text.substring(0, maxSize) : text;
+    const truncatedText =
+      isTruncated && shouldTruncate ? text.substring(0, maxSize) : text;
+
     setTruncatedText(truncatedText);
   }, [isTruncated]);
 
@@ -27,14 +29,20 @@ export function Text({
     <div>
       <p className={`${className} whitespace-pre-line`}>
         {truncatedText}
-        {isTruncated && truncatedText.length < text.length && "..."}
+        {isTruncated &&
+          truncatedText.length < text.length &&
+          shouldTruncate &&
+          "..."}
       </p>
-      <button
-        className="text-sm text-darkgrey"
-        onClick={() => setIsTruncated(!isTruncated)}
-      >
-        {isTruncated ? "Read more" : "Read less"}
-      </button>
+
+      {shouldTruncate && (
+        <button
+          className="text-sm text-darkgrey"
+          onClick={() => setIsTruncated(!isTruncated)}
+        >
+          {isTruncated ? "Read more" : "Read less"}
+        </button>
+      )}
     </div>
   );
 }
