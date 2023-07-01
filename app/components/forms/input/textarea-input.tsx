@@ -8,6 +8,7 @@ export function TextareaInput({ name, labelText }: TextareaInputProps) {
     <div className="relative">
       <textarea
         id={name}
+        name={name}
         className={`peer block w-full appearance-none rounded-3xl border border-darkgrey bg-transparent px-4 pb-2.5 pt-4 text-sm text-dark focus:text-dark focus:outline-none focus:ring-0`}
         placeholder=" "
       />
