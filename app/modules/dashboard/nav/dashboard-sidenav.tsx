@@ -7,7 +7,8 @@ import {
   CameraIcon,
   TagIcon,
 } from "@heroicons/react/24/outline";
-import { Form } from "@remix-run/react";
+import { Form, useSearchParams } from "@remix-run/react";
+import { params } from "~/config/params";
 import { routes } from "~/config/routes";
 import { useUser } from "~/utils";
 
@@ -18,6 +19,13 @@ type DashboardSidenavProps = {
 
 export function DashboardSidenav({ className = "" }: DashboardSidenavProps) {
   const user = useUser();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  function handleOpenModalClick(): void {
+    searchParams.set(params.transactionModal, "true");
+
+    setSearchParams(searchParams);
+  }
 
   return (
     <Sidenav>
@@ -51,12 +59,16 @@ export function DashboardSidenav({ className = "" }: DashboardSidenavProps) {
         label="Labels"
       />
 
-      <SidenavNavItem
-        path=""
-        icon={<CameraIcon className="h-5 w-5" />}
-        label="Add in-expense"
-        onClick={() => {}}
-      />
+      <div
+        onClick={() => handleOpenModalClick()}
+        className={`${className} flex items-center rounded-3xl px-5 py-3 hover:underline ${
+          searchParams.get(params.transactionModal) && "bg-lightgrey font-bold"
+        }`}
+      >
+        <CameraIcon className="h-5 w-5" />
+
+        <span className="ml-2">Add in-expense</span>
+      </div>
 
       <SidenavNavItem
         path=""
