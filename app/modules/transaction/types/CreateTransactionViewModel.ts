@@ -1,13 +1,13 @@
 import { TransactionTypeEnum } from "../enums";
 
 export type CreateTransactionViewModel = {
-  type?: TransactionTypeEnum;
-  amount?: number;
-  name?: string;
+  type: TransactionTypeEnum;
+  amount: number;
+  name: string;
   description?: string | null;
-  payDate?: Date;
+  payDate: Date;
 };
 
 export function createTransactionViewModel(): CreateTransactionViewModel {
-  return {};
+  return {} as CreateTransactionViewModel;
 }
