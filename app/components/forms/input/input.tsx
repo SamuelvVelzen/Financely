@@ -24,7 +24,8 @@ export function Input({
       <input
         type={type}
         id={name}
-        className={`${inputClassName} peer block w-full appearance-none rounded-3xl border border-darkgrey bg-transparent px-4 pb-2.5 pt-4 text-sm text-dark focus:text-dark focus:outline-none focus:ring-0`}
+        name={name}
+        className={`${inputClassName} peer block w-full appearance-none rounded-3xl border border-darkgrey bg-transparent px-5 pb-2.5 pt-4 text-sm text-dark focus:text-dark focus:outline-none focus:ring-0`}
         placeholder=" "
         min={min}
         max={max}
