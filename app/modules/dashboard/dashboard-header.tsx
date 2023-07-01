@@ -2,9 +2,9 @@ import { IBreadCrumbConfig } from "@Financely/UI/breadcrumb/breadcrumb";
 import { BreadCrumbs } from "@Financely/UI/breadcrumb/breadcrumbs";
 import { Container } from "@Financely/UI/container";
 import Title from "@Financely/UI/typography/title";
+import { createRoute } from "@Financely/Util/nav";
 import { HomeIcon } from "@heroicons/react/24/outline";
 import { routes } from "~/config/routes";
-import { createRoute } from "~/util/nav";
 
 type DashboardHeaderProps = {
   className?: string;
