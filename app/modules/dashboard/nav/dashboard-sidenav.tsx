@@ -6,6 +6,7 @@ import {
   ArrowRightOnRectangleIcon,
   CameraIcon,
   TagIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Form, useSearchParams } from "@remix-run/react";
 import { params } from "~/config/params";
@@ -29,6 +30,8 @@ export function DashboardSidenav({ className = "" }: DashboardSidenavProps) {
 
   return (
     <Sidenav>
+      <XMarkIcon className="absolute right-4 h-7 w-7" />
+
       <div className="m-5 mb-10 flex flex-col">
         <Logo includeName={true} />
         <SubTitle text={`Hello ${user.firstName}!`} />
