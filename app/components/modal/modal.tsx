@@ -1,7 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Form } from "@remix-run/react";
 import { Fragment, PropsWithChildren, useRef } from "react";
-import { ModalFooter } from "./modal-footer";
+import { IExternalModalFooterProps, ModalFooter } from "./modal-footer";
 import { ModalHeader } from "./modal-header";
 
 export enum IModalSizeEnum {
@@ -22,12 +21,7 @@ type ModalProps = {
   header: {
     title: string;
   };
-  footer: {
-    primaryTextBtn: string;
-
-    primaryAction?: () => Promise<void>;
-    secondaryTextBtn?: string;
-  };
+  footer: IExternalModalFooterProps;
   size?: IModalSizeEnum;
   action: {
     open: boolean;
@@ -80,25 +74,21 @@ export function Modal({
               <Dialog.Panel
                 className={`relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full ${ModalSizeOptions[size].class}`}
               >
-                <Form method="post">
-                  <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                    <div className="sm:flex sm:items-start">
-                      <div className="mt-3 w-full text-center sm:mt-0 sm:text-left">
-                        <ModalHeader title={header.title} />
+                <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                  <div className="sm:flex sm:items-start">
+                    <div className="mt-3 w-full text-center sm:mt-0 sm:text-left">
+                      <ModalHeader title={header.title} />
 
-                        <div className="mt-2">{children}</div>
-                      </div>
+                      <div className="mt-2">{children}</div>
                     </div>
                   </div>
+                </div>
 
-                  <ModalFooter
-                    setOpen={setOpen}
-                    cancelButtonRef={cancelButtonRef}
-                    primaryTextBtn={footer.primaryTextBtn}
-                    secondaryTextBtn={footer.secondaryTextBtn}
-                    primaryAction={footer.primaryAction}
-                  />
-                </Form>
+                <ModalFooter
+                  setOpen={setOpen}
+                  cancelButtonRef={cancelButtonRef}
+                  footerProps={footer}
+                />
               </Dialog.Panel>
             </Transition.Child>
           </div>
