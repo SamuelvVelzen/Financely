@@ -1,5 +1,5 @@
 import { DashboardHeader } from "@Financely/Module/dashboard";
-import { TransactionModal } from "@Financely/Module/transaction/transaction-modal";
+import { TransactionModal } from "@Financely/Module/transaction";
 import { Container } from "@Financely/UI/container";
 import { List, ListItem } from "@Financely/UI/list";
 import { SubText, SubTitle } from "@Financely/UI/typography";

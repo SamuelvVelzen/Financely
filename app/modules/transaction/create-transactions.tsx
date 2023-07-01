@@ -1,10 +1,10 @@
-import { Button, ThemeColorEnum } from "@Financely/UI/button";
-import { useEffect, useState } from "react";
-import { CreateTransaction } from "./create-transaction";
 import {
   createTransactionViewModel,
   CreateTransactionViewModel,
-} from "./types";
+} from "@Financely/Data/transaction";
+import { Button, ThemeColorEnum } from "@Financely/UI/button";
+import { useEffect, useState } from "react";
+import { CreateTransaction } from "./create-transaction";
 
 type TransactionData = {
   data: CreateTransactionViewModel;

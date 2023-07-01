@@ -1,15 +1,8 @@
 import { Expense, Prisma } from "@prisma/client";
 import { prisma } from "~/db.server";
+import { ExpenseCreateViewModel } from "./types";
 
-export type { User } from "@prisma/client";
-
-export type ExpenseCreateViewModel = {
-  amount: number;
-  name: Expense["name"];
-  description: Expense["description"];
-  payDate: Expense["payDate"];
-  userId: Expense["userId"];
-};
+export type { Expense } from "@prisma/client";
 
 export async function createExpense(
   expense: ExpenseCreateViewModel

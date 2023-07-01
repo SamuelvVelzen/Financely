@@ -1,8 +1,8 @@
-import { TransactionTypeEnum } from "@Financely/Module/transaction/enums";
-import { CreateTransactionViewModel } from "@Financely/Module/transaction/types";
-import { Expense, Income } from "@prisma/client";
-import { createExpenses, ExpenseCreateViewModel } from "./expense.server";
-import { createIncomes, IncomeCreateViewModel } from "./income.server";
+import { TransactionTypeEnum } from "./enums";
+import { createExpenses, Expense } from "./expense.server";
+import { createIncomes, Income } from "./income.server";
+import { ExpenseCreateViewModel, IncomeCreateViewModel } from "./types";
+import { CreateTransactionViewModel } from "./types/CreateTransactionViewModel";
 
 export const createTransactions = (
   transactions: CreateTransactionViewModel[],

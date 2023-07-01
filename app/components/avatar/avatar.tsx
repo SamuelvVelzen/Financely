@@ -1,4 +1,4 @@
-import { User } from "@prisma/client";
+import { User } from "@Financely/Data/user";
 
 export enum IAvatarSize {
   sm = "sm",

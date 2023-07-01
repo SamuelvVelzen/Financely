@@ -1,5 +1,4 @@
-import { IBreadCrumbConfig } from "@Financely/UI/breadcrumb/breadcrumb";
-import { BreadCrumbs } from "@Financely/UI/breadcrumb/breadcrumbs";
+import { BreadCrumbs, IBreadCrumbConfig } from "@Financely/UI/breadcrumb";
 import { Container } from "@Financely/UI/container";
 import Title from "@Financely/UI/typography/title";
 import { createRoute } from "@Financely/Util/nav";

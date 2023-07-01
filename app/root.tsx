@@ -1,3 +1,9 @@
+import {
+  createTransactions,
+  CreateTransactionViewModel,
+  TransactionTypeEnum,
+} from "@Financely/Data/transaction";
+import { TransactionModal } from "@Financely/Module/transaction";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { ActionArgs, LinksFunction, LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
@@ -11,14 +17,9 @@ import {
   useSearchParams,
 } from "@remix-run/react";
 import { useEffect, useState } from "react";
-
 import { getUser, requireUserId } from "~/session.server";
 import stylesheet from "~/tailwind.css";
 import { params } from "./config/params";
-import { createTransactions } from "./models/transaction/transaction.server";
-import { TransactionTypeEnum } from "./modules/transaction/enums";
-import { TransactionModal } from "./modules/transaction/transaction-modal";
-import { CreateTransactionViewModel } from "./modules/transaction/types";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },

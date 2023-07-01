@@ -1,4 +1,8 @@
 import {
+  CreateTransactionViewModel,
+  TransactionTypeEnum,
+} from "@Financely/Data/transaction";
+import {
   Button,
   DeleteButton,
   EditButton,
@@ -13,9 +17,8 @@ import {
   TextareaInput,
   TextInput,
 } from "@Financely/UI/forms";
+
 import { useState } from "react";
-import { TransactionTypeEnum } from "./enums";
-import { CreateTransactionViewModel } from "./types";
 
 type CreateTransactionProps = {
   data: CreateTransactionViewModel;

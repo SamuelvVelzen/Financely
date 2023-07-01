@@ -17,9 +17,9 @@
     "baseUrl": ".",
     "paths": {
       "@Financely/UI/*": ["./app/components/*"],
+      "@Financely/Util/*": ["./app/util/*"],
       "@Financely/Module/*": ["./app/modules/*"],
       "@Financely/Data/*": ["./app/models/*"],
-      "@Financely/Util/*": ["./app/util/*"],
       "~/*": ["./app/*"],
     },
     "skipLibCheck": true,
