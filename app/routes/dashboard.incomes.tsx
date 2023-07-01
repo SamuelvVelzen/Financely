@@ -1,7 +1,6 @@
 import { DashboardHeader } from "@Financely/Module/dashboard";
 import { TransactionModal } from "@Financely/Module/transaction/transaction-modal";
 import { Container } from "@Financely/UI/container";
-import { TextInput } from "@Financely/UI/forms";
 import { List, ListItem } from "@Financely/UI/list";
 import { SubText, SubTitle } from "@Financely/UI/typography";
 import { createRoute } from "@Financely/Util/nav";
@@ -33,8 +32,6 @@ export default function ExpensePage() {
         <div>
           <SubText text={"Last month (30 days)"} className="text-darkgrey" />
           <SubTitle text={"Incomes"} className="mb-4 w-full border-b-2 pb-4" />
-
-          <TextInput labelText={"swag"} />
         </div>
         <List>
           {[12, 42, 24, 1, 2, 12, 42, 5, 5].map((x, index) => (

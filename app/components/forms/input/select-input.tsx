@@ -13,7 +13,7 @@ type SelectInputProps = {
 export function SelectInput({
   name,
   labelText,
-  className,
+  className = "",
   options = [],
 }: SelectInputProps) {
   const [open, setOpen] = useState(false);

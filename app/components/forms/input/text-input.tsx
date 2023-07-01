@@ -6,7 +6,7 @@ type TextInputProps = {
   className?: string;
 };
 
-export function TextInput({ name, labelText, className }: TextInputProps) {
+export function TextInput({ name, labelText, className = "" }: TextInputProps) {
   return (
     <Input
       name={name}

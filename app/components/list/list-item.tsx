@@ -4,7 +4,7 @@ type ListItemProps = { className?: string };
 
 export function ListItem({
   children,
-  className,
+  className = "",
 }: PropsWithChildren<ListItemProps>) {
   return <div className={`p-4 ${className}`}>{children}</div>;
 }

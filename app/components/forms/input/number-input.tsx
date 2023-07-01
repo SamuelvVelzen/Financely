@@ -15,7 +15,7 @@ export function NumberInput({
   step,
   min,
   max,
-  className,
+  className = "",
 }: NumberInputProps) {
   return (
     <Input

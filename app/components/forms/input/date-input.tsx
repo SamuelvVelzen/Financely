@@ -6,7 +6,7 @@ type DateInputProps = {
   className?: string;
 };
 
-export function DateInput({ name, labelText, className }: DateInputProps) {
+export function DateInput({ name, labelText, className = "" }: DateInputProps) {
   return (
     <Input
       name={name}

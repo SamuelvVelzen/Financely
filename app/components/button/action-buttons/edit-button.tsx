@@ -9,7 +9,7 @@ type EditButtonProps = {
 
 export function EditButton({
   type = "button",
-  className,
+  className = "",
   onClick,
 }: propsWithOnClick<EditButtonProps, HTMLButtonElement>) {
   return (

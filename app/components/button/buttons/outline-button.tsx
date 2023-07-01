@@ -11,7 +11,7 @@ type OutlineButtonProps = {
 export function OutlineButton({
   type = "button",
   theme,
-  className,
+  className = "",
   children,
   onClick,
 }: propsWithOnClick<PropsWithChildren<OutlineButtonProps>>) {

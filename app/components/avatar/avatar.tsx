@@ -15,7 +15,7 @@ type AvatarProps = {
 export function Avatar({
   user,
   size = IAvatarSize.md,
-  className,
+  className = "",
 }: AvatarProps) {
   const { firstName, lastName } = user;
 

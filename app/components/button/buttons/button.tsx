@@ -11,7 +11,7 @@ type ButtonProps = {
 export function Button({
   type = "button",
   theme,
-  className,
+  className = "",
   children,
   onClick,
 }: propsWithOnClick<PropsWithChildren<ButtonProps>>) {

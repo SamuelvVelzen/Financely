@@ -8,7 +8,7 @@ type DeleteButtonProps = {
 
 export function DeleteButton({
   type = "button",
-  className,
+  className = "",
 }: DeleteButtonProps) {
   return (
     <button
