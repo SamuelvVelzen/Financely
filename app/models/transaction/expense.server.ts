@@ -11,8 +11,10 @@ export type ExpenseCreateViewModel = {
   userId: Expense["userId"];
 };
 
-export async function createExpense(expense: ExpenseCreateViewModel) {
-  return prisma.expense.create({
+export async function createExpense(
+  expense: ExpenseCreateViewModel
+): Promise<Expense> {
+  return await prisma.expense.create({
     data: {
       amount: new Prisma.Decimal(expense.amount),
       name: expense.name,
@@ -21,4 +23,16 @@ export async function createExpense(expense: ExpenseCreateViewModel) {
       userId: expense.userId,
     },
   });
+}
+
+export async function createExpenses(
+  expenses: ExpenseCreateViewModel[]
+): Promise<Expense[]> {
+  const expensePromises = expenses.map((expense) => createExpense(expense));
+
+  return await Promise.all(expensePromises);
+}
+
+export async function getAllExpenses() {
+  return prisma.expense.findMany();
 }
