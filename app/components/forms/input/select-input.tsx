@@ -74,6 +74,8 @@ export function SelectInput({
           ))}
         </div>
       )}
+
+      <input type="hidden" name={name} value={selectedOption?.value} required />
     </div>
   );
 }
