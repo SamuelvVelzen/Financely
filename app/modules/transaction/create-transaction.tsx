@@ -81,11 +81,9 @@ export function CreateTransaction({
           {showDetails ? "Show" : "Hide"} advanced data
         </p>
 
-        {showDetails && (
-          <div>
-            <TextareaInput name="description" labelText={"Description"} />
-          </div>
-        )}
+        <div className={`${showDetails ? "block" : "hidden"}`}>
+          <TextareaInput name="description" labelText={"Description"} />
+        </div>
 
         <div className="flex justify-end">
           <OutlineButton
