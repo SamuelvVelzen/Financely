@@ -14,7 +14,7 @@ export default function DashboardPage() {
     <div className="flex h-full min-h-screen bg-lightgrey">
       <DashboardSidenav />
 
-      <main className="flex w-full flex-col overflow-x-hidden p-4">
+      <main className="flex h-full w-full flex-col overflow-x-hidden overflow-y-hidden p-4">
         <Outlet />
       </main>
     </div>

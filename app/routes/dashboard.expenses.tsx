@@ -34,13 +34,16 @@ export default function ExpensePage() {
         className="mb-4"
       />
 
-      <Container>
-        <div>
+      <Container className="overflow-y-hidden pr-0">
+        <div className="pr-4">
           <SubText text={"Last month (30 days)"} className="text-darkgrey" />
           <SubTitle text={"Expenses"} className="w-full border-b-2 pb-4" />
         </div>
 
-        <ExpenseList data={data} />
+        <ExpenseList
+          data={data}
+          className="h-full overflow-y-scroll pb-14 pr-4"
+        />
       </Container>
     </>
   );
