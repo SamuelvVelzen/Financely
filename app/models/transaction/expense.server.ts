@@ -27,5 +27,5 @@ export async function createExpenses(
 }
 
 export async function getAllExpenses() {
-  return prisma.expense.findMany();
+  return prisma.expense.findMany({ orderBy: { payDate: "desc" } });
 }
