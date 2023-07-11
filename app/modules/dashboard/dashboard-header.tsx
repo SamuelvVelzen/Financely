@@ -28,9 +28,9 @@ export function DashboardHeader({
       <BreadCrumbs breadCrumbs={[homeRoute, ...breadCrumbs]} />
       <Title text={titleText} className="col-start-1"></Title>
 
-      <span className="col-start-2 row-span-2 row-start-1 self-center justify-self-end">
+      <div className="col-start-2 row-span-2 row-start-1 self-center justify-self-end">
         {rightChild}
-      </span>
+      </div>
     </Container>
   );
 }
