@@ -1,11 +1,16 @@
 import { getAllExpenses } from "@Financely/Data/transaction";
-import { DashboardHeader } from "@Financely/Module/dashboard";
+import { UploadCsvTransactionsModal } from "@Financely/Data/transaction/modals";
+import {
+  DashboardHeader,
+  TransactionDropdown,
+} from "@Financely/Module/dashboard";
 import { ExpenseList } from "@Financely/Module/transaction";
 import { Container } from "@Financely/UI/container";
 import { SubText, SubTitle } from "@Financely/UI/typography";
 import { createRoute } from "@Financely/Util/nav";
 import { json, LoaderArgs, V2_MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { useState } from "react";
 import { routes } from "~/config/routes";
 
 export const meta: V2_MetaFunction = () => [{ title: "Expenses | Financely" }];
@@ -18,6 +23,7 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 export default function ExpensePage() {
   const { data } = useLoaderData<typeof loader>();
+  const [openUploadModal, setOpenUploadModal] = useState(false);
 
   const breadCrumbs = [
     {
@@ -32,6 +38,11 @@ export default function ExpensePage() {
         titleText={"Expenses"}
         breadCrumbs={breadCrumbs}
         className="mb-4"
+        rightChild={
+          <TransactionDropdown
+            handleUploadClick={() => setOpenUploadModal(true)}
+          />
+        }
       />
 
       <Container className="overflow-y-hidden pr-0">
@@ -45,6 +56,10 @@ export default function ExpensePage() {
           className="h-full overflow-y-scroll pb-14 pr-4"
         />
       </Container>
+
+      <UploadCsvTransactionsModal
+        openState={[openUploadModal, setOpenUploadModal]}
+      />
     </>
   );
 }
