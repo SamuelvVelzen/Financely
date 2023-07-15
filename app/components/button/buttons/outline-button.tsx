@@ -6,6 +6,7 @@ type OutlineButtonProps = {
   className?: string;
   theme: ThemeColorEnum;
   type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
+  ref?: React.MutableRefObject<null>;
 };
 
 export function OutlineButton({
@@ -14,11 +15,13 @@ export function OutlineButton({
   className = "",
   children,
   onClick,
+  ref,
 }: propsWithOnClick<PropsWithChildren<OutlineButtonProps>>) {
   return (
     <button
       type={type}
       onClick={onClick}
+      ref={ref}
       className={`rounded-3xl px-4 py-2 ${OutlineButtonThemeOptions[theme].class} ${className}`}
     >
       {children}

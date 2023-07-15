@@ -5,6 +5,7 @@ import { ThemeColorEnum } from "./enums/ThemeColor.enum";
 type ButtonProps = {
   className?: string;
   theme: ThemeColorEnum;
+  ref?: React.MutableRefObject<null>;
   type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
 };
 
@@ -14,11 +15,13 @@ export function Button({
   className = "",
   children,
   onClick,
+  ref,
 }: propsWithOnClick<PropsWithChildren<ButtonProps>>) {
   return (
     <button
       type={type}
       onClick={onClick}
+      ref={ref}
       className={`rounded-3xl px-4 py-2 ${ButtonThemeOptions[theme].class} ${className}`}
     >
       {children}
