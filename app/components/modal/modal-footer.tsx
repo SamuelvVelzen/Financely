@@ -34,6 +34,10 @@ export function ModalFooter({
     setOpen(false);
   };
 
+  if (!footerProps || !footerProps.primaryTextBtn) {
+    return null;
+  }
+
   return (
     <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
       <button

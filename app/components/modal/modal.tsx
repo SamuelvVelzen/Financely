@@ -74,11 +74,11 @@ export function Modal({
               <Dialog.Panel
                 className={`relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full ${ModalSizeOptions[size].class}`}
               >
-                <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                <ModalHeader title={header.title} />
+
+                <div className="bg-white px-4 sm:p-6">
                   <div className="sm:flex sm:items-start">
                     <div className="mt-3 w-full text-center sm:mt-0 sm:text-left">
-                      <ModalHeader title={header.title} />
-
                       <div className="mt-2">{children}</div>
                     </div>
                   </div>

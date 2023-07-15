@@ -1,16 +1,17 @@
-import { Dialog } from "@headlessui/react";
+import { SubTitle } from "../typography";
 
 type ModalHeaderProps = {
   title: string;
 };
 
 export function ModalHeader({ title }: ModalHeaderProps) {
+  if (!title) {
+    return null;
+  }
+
   return (
-    <Dialog.Title
-      as="h3"
-      className="text-base font-semibold leading-6 text-gray-900"
-    >
-      {title}
-    </Dialog.Title>
+    <div className="bg-gray-50 px-4 py-3 sm:px-6">
+      <SubTitle text={title} />
+    </div>
   );
 }
