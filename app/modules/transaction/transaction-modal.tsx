@@ -17,7 +17,6 @@ export function TransactionModal({ openState }: ExpenseIncomeModalProps) {
   const footerOptions: IExternalModalFooterProps = {
     primaryTextBtn: "Opslaan",
     secondaryTextBtn: "Annuleren",
-    formName: "transaction-form",
   };
 
   return (
@@ -27,7 +26,7 @@ export function TransactionModal({ openState }: ExpenseIncomeModalProps) {
       action={{ open: openState[0], setOpen: openState[1] }}
       size={IModalSizeEnum.lg}
     >
-      <Form id={footerOptions.formName} method="post">
+      <Form method="post">
         <CreateTransactions />
       </Form>
     </Modal>
